@@ -24,10 +24,41 @@ class Node:
             self.next = right
             right.next = temp
 
+class LinkedList:
+
+    def __init__(self):
+        self.head = None
+
+    def push(self, new_head):
+
+        if self.head == None:
+            self.head = new_head
+
+        else:
+            # written by doy
+            temp = self.head
+            self.head = new_head
+            new_head.insert(temp)
+            # self.head.insert(temp)
+
+            # solution
+            # new_head.insert(self.head)
+            # self.head = new_head
+
+
+    # IS:  self.head == a -> b-> c
+    # insert (d): self.head == d -> a  (previous self.head)->b->c
 
 a = Node(10)
 b = Node(7)
-c = Node (3)
-a.insert(c)
-a.insert(b)
+c = Node(3)
+d = Node(5)
+
+linked_list = LinkedList()
+linked_list.push(a)
+linked_list.push(d)
+linked_list.push(b)
+linked_list.push(c)
+
 print("finish")
+
