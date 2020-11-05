@@ -1,3 +1,5 @@
+import numpy as np
+import time
 
 class Node:
 
@@ -49,16 +51,36 @@ class LinkedList:
     # IS:  self.head == a -> b-> c
     # insert (d): self.head == d -> a  (previous self.head)->b->c
 
-a = Node(10)
-b = Node(7)
-c = Node(3)
-d = Node(5)
+# setting some number with the variable n1, n2
 
-linked_list = LinkedList()
-linked_list.push(a)
-linked_list.push(d)
-linked_list.push(b)
-linked_list.push(c)
+n1 = 10000
+n2 = 1000000
 
+#
+linkedlist_1 = LinkedList()
+linkedlist_2 = LinkedList()
+
+# create n1 nodes
+for i in range(n1):
+    node = Node(1)
+    linkedlist_1.push(node)
+
+# create n2 nodes
+for i in range(n2):
+    node = Node(1)
+    linkedlist_2.push(node)
+
+
+start = time.time()
+tmpNode = Node(1)
+linkedlist_1.push(tmpNode)
+elapse1 = time.time() - start
+
+start = time.time()
+tmpNode = Node(1)
+linkedlist_2.push(tmpNode)
+elapse2 = time.time() - start
+
+print ( elapse1 * 1000, elapse2*1000 )
 print("finish")
 
